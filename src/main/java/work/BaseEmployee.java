@@ -1,11 +1,20 @@
 package work;
 
-public abstract class BaseEmployee{
-    EmployeeInfo info;
-    public BaseEmployee(EmployeeInfo info) {
+public abstract class BaseEmployee {
+    private EmployeeInfo info;
+    private double salary;
+
+    protected BaseEmployee(EmployeeInfo info) {
         this.info = info;
     }
+
     public abstract double getSalary();
-    public abstract void setSalary(int salary);
+
+    public  void setSalary(double salary){
+        this.salary = salary;
+    }
+    public BaseEmployee compareSalary(BaseEmployee baseEmployee2){
+        if (this.salary > baseEmployee2.salary) return this; else return baseEmployee2;
+    }
 
 }
