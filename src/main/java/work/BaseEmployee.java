@@ -15,13 +15,17 @@ public abstract class BaseEmployee {
 
     public abstract void setSalary(double salary);
 
+    public String getName() {
+        return getInfo().getName();
+    }
+
     public EmployeeInfo getInfo() {
         return info;
     }
 
     @Override
     public String toString() {
-        return "ID " + this.info.getID()  + " " + "name " +
+        return "ID " + this.info.getID() + " " + "name " +
                 this.info.getName() + " " + "surname " + this.info.getSurname();
     }
 }

@@ -12,7 +12,7 @@ public class HourRateEmployee extends BaseEmployee {
     private int hoursRate;
     private double salary;
 
-    public HourRateEmployee(EmployeeInfo info,int hoursRate,double salary) {
+    public HourRateEmployee(EmployeeInfo info, int hoursRate, double salary) {
         super(info);
         this.hoursRate = hoursRate;
         this.salary = salary * this.hoursRate;
