@@ -20,11 +20,7 @@ public class Start {
         employees.add(employee4);
         employees.add(employee2);
         employees.add(employee3);
-        for (BaseEmployee e : employees
-        ) {
-            System.out.println(e.getInfo().getName() + " " + e.getSalary());
-
-        }
+        employees.forEach(System.out::println);
 
     }
 

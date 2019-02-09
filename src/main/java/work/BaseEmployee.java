@@ -25,7 +25,8 @@ public abstract class BaseEmployee {
 
     @Override
     public String toString() {
-        return "ID " + this.info.getID() + " " + "name " +
-                this.info.getName() + " " + "surname " + this.info.getSurname();
+        return "ID:" + this.info.getID() + " " + "name:" +
+                this.info.getName() + " " + "surname:" + this.info.getSurname() + " " +"salary:" +
+                this.getSalary();
     }
 }
