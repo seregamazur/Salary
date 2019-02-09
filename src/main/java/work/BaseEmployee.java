@@ -1,6 +1,9 @@
 package work;
 
-public abstract class BaseEmployee {
+import java.io.Serializable;
+
+public abstract class BaseEmployee implements Serializable {
+    public BaseEmployee(){}
     public void setInfo(EmployeeInfo info) {
         this.info = info;
     }

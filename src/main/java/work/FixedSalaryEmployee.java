@@ -1,8 +1,10 @@
 package work;
 
-public class FixedSalaryEmployee extends BaseEmployee {
-    private double salary;
+import java.io.Serializable;
 
+public class FixedSalaryEmployee extends BaseEmployee implements Serializable {
+    private double salary;
+    public FixedSalaryEmployee(){}
     public FixedSalaryEmployee(EmployeeInfo info, double salary) {
         super(info);
         this.salary = salary;

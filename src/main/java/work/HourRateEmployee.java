@@ -1,6 +1,9 @@
 package work;
 
-public class HourRateEmployee extends BaseEmployee {
+import java.io.Serializable;
+
+public class HourRateEmployee extends BaseEmployee implements Serializable {
+    public HourRateEmployee(){}
     public int getHoursRate() {
         return hoursRate;
     }

@@ -1,6 +1,7 @@
 package work;
 
 public class EmployeeInfo {
+
     public int getID() {
         return ID;
     }
