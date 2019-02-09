@@ -19,7 +19,7 @@ public class HourRateEmployee extends BaseEmployee {
     }
 
     @Override
-    public Double getSalary() {
+    public double getSalary() {
         return salary * hoursRate;
     }
 

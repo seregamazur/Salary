@@ -8,13 +8,13 @@ public abstract class BaseEmployee {
     }
 
     private EmployeeInfo info;
-    private Double salary;
+    private double salary;
 
     protected BaseEmployee(EmployeeInfo info) {
         this.info = info;
     }
 
-    public abstract Double getSalary();
+    public abstract double getSalary();
 
     public void setSalary(double salary) {
         this.salary = salary;
@@ -24,6 +24,10 @@ public abstract class BaseEmployee {
         return info;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "ID " + this.info.getID() + "name " +
+                this.info.getName() + "surname " +this.info.getSurname()
+                + "salary:" + this.salary;
+    }
 }

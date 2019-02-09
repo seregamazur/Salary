@@ -9,7 +9,7 @@ public class FixedSalaryEmployee extends BaseEmployee {
     }
 
     @Override
-    public Double getSalary() {
+    public double getSalary() {
         return salary;
     }
 
