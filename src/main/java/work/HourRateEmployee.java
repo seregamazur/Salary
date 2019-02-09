@@ -15,11 +15,11 @@ public class HourRateEmployee extends BaseEmployee {
     public HourRateEmployee(EmployeeInfo info,int hoursRate,double salary) {
         super(info);
         this.hoursRate = hoursRate;
-        this.salary = salary;
+        this.salary = salary * hoursRate;
     }
 
     @Override
-    public double getSalary() {
+    public Double getSalary() {
         return salary * hoursRate;
     }
 
