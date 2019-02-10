@@ -1,6 +1,8 @@
 package work;
 
-public class EmployeeInfo {
+import java.io.Serializable;
+
+public class EmployeeInfo implements Serializable {
 
     public int getID() {
         return ID;

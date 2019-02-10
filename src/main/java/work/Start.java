@@ -3,18 +3,24 @@ package work;
 import java.io.*;
 import java.util.*;
 
-public class Start {
+public class Start implements Serializable {
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        File serial = new File("/GIT/softSalary/src/main/java/work/set.txt");
-        ObjectOutputStream os  = new ObjectOutputStream(new FileOutputStream(serial));
+        new Start().start();
+    }
+
+    private void start() throws IOException, ClassNotFoundException {
+        File serial = new File("src/main/java/work/set");
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(serial));
         List<BaseEmployee> employees = addEmployees();
-        EmployeesDatabase.getInstance().addAll(employees);
-        EmployeesDatabase.getInstance().getEmployees().forEach(System.out::println);
-        os.writeObject(EmployeesDatabase.getInstance().getEmployees());
+        NavigableSet<Object> database = new TreeSet<>().descendingSet();
+        database.addAll(employees);
+        database.forEach(System.out::println);
+        os.writeObject(database);
         os.flush();
         os.close();
-        ObjectInputStream is = new ObjectInputStream(new ObjectInputStream(new FileInputStream(serial)));
-        Set<? extends BaseEmployee> emp  = (Set<? extends BaseEmployee>) is.readObject();
+        ObjectInputStream is = new ObjectInputStream(new FileInputStream(serial));
+        Set<? extends BaseEmployee> emp = (Set<? extends BaseEmployee>) is.readObject();
         emp.forEach(System.out::println);
         is.close();
     }
@@ -32,6 +38,9 @@ public class Start {
         employees.add(employee2);
         employees.add(employee3);
         return employees;
+    }
+
+    public Start() {
     }
 
 

@@ -2,8 +2,8 @@ package work;
 
 import java.io.Serializable;
 
-public abstract class BaseEmployee implements Serializable {
-    public BaseEmployee(){}
+public abstract class BaseEmployee implements Serializable, Comparable<BaseEmployee> {
+
     public void setInfo(EmployeeInfo info) {
         this.info = info;
     }
@@ -18,7 +18,7 @@ public abstract class BaseEmployee implements Serializable {
 
     public abstract void setSalary(double salary);
 
-    public String getName() {
+    private String getName() {
         return getInfo().getName();
     }
 
@@ -29,7 +29,14 @@ public abstract class BaseEmployee implements Serializable {
     @Override
     public String toString() {
         return "ID:" + this.info.getID() + " " + "name:" +
-                this.info.getName() + " " + "surname:" + this.info.getSurname() + " " +"salary:" +
+                this.info.getName() + " " + "surname:" + this.info.getSurname() + " " + "salary:" +
                 this.getSalary();
+    }
+
+    @Override
+    public int compareTo(BaseEmployee employee) {
+        if (Double.compare(this.getSalary(), employee.getSalary()) == 0) {
+            return this.getName().compareTo(employee.getName());
+        } else return Double.compare(this.getSalary(), employee.getSalary());
     }
 }
