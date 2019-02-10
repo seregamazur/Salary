@@ -26,7 +26,7 @@ public class Start implements Serializable {
         //sout first five employees
         emp.stream().limit(5).forEach(System.out::println);
         //sout last 3 employees
-        emp.stream().skip(emp.size()-3).forEach(System.out::println);
+        emp.stream().skip(emp.size()-3).forEach(e -> System.out.println((e).getInfo().getID()));
     }
 
     private static List<BaseEmployee> addEmployees() {
