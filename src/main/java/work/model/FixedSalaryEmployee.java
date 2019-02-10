@@ -1,4 +1,7 @@
-package work;
+package work.model;
+
+import work.model.BaseEmployee;
+import work.model.EmployeeInfo;
 
 import java.io.Serializable;
 

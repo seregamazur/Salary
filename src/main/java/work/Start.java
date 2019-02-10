@@ -1,32 +1,19 @@
 package work;
 
+import work.model.BaseEmployee;
+import work.model.EmployeeInfo;
+import work.model.FixedSalaryEmployee;
+import work.model.HourRateEmployee;
+import work.utils.Serializator;
+
 import java.io.*;
 import java.util.*;
 
 public class Start implements Serializable {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        new Start().start();
-    }
-
-    private void start() throws IOException, ClassNotFoundException {
-        //creating new file where we would save out set
+    public static void main(String[] args)  {
         File serial = new File("src/main/java/work/set.data");
-        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(serial));
-        List<BaseEmployee> employees = addEmployees();
-        //creating set
-        NavigableSet<Object> database = new TreeSet<>().descendingSet();
-        database.addAll(employees);
-        os.writeObject(database);
-        os.flush();
-        os.close();
-        ObjectInputStream is = new ObjectInputStream(new FileInputStream(serial));
-        Set<? extends BaseEmployee> emp = (Set<? extends BaseEmployee>) is.readObject();
-        is.close();
-        //sout first five employees
-        emp.stream().limit(5).forEach(System.out::println);
-        //sout last 3 employees
-        emp.stream().skip(emp.size()-3).forEach(e -> System.out.println((e).getInfo().getID()));
+        Serializator.work(addEmployees(),serial);
     }
 
     private static List<BaseEmployee> addEmployees() {
@@ -44,9 +31,6 @@ public class Start implements Serializable {
         employees.add(employee3);
         employees.add(employee5);
         return employees;
-    }
-
-    public Start() {
     }
 
 
