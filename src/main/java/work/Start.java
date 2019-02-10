@@ -27,9 +27,6 @@ public class Start implements Serializable {
         emp.stream().limit(5).forEach(System.out::println);
         //sout last 3 employees
         emp.stream().skip(emp.size()-3).forEach(System.out::println);
-
-
-
     }
 
     private static List<BaseEmployee> addEmployees() {
@@ -46,7 +43,6 @@ public class Start implements Serializable {
         employees.add(employee2);
         employees.add(employee3);
         employees.add(employee5);
-
         return employees;
     }
 
